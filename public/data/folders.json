@@ -979,6 +979,83 @@
           "image2": "https://static.wixstatic.com/media/e22a21_e5cbd25f0d86427e92d6720b8a797f28~mv2.png/v1/fill/w_399,h_399,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e22a21_e5cbd25f0d86427e92d6720b8a797f28~mv2.png"
         }
       ]
+    },
+    {
+      "label": "Travel Photography",
+      "title": "Travel Photography",
+      "description": "All photos were taken during trips across China, capturing scenery, humanity, and museum collections. Divided into regions of China's geography for easy viewing. Each video is combined with local traditional folk music.",
+      "content": [
+        {
+          "format": "header",
+          "title": "Welcome to Travel Photography",
+          "description": "A journey through China's regions — Northeastern, Eastern, Southwestern, Southern, and Northern China — told through photography and film, each chapter scored with traditional local folk music. Shot on iPhone X, CANON EOS7D, and PENTAX ESPIO 80. Edited by Eucal."
+        },
+        {
+          "format": "header",
+          "title": "Northeastern China",
+          "description": ""
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_54a067bb381b4ab3897cc696a0903568/720p/mp4/file.mp4",
+          "description": "Northeastern China\niPhone X, CANON EOS7D\nClip: Eucal\nSoundtrack: Northeast Past (folk song)\nCities: Changbai Mountain, Changchun, Shenyang, Harbin"
+        },
+        {
+          "format": "header",
+          "title": "East China",
+          "description": ""
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_15e4775e00c145b8ba1b24bc8f656ed6/720p/mp4/file.mp4",
+          "description": "Nanjing\niPhone X, CANON EOS7D\nClip: Eucal\nSoundtrack: Qinhuai Scenery (Pipa music)\nCities: Nanjing"
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_c9f02af5d70744e8840cf358d2e9513c/720p/mp4/file.mp4",
+          "description": "Shanghai\niPhone X\nClip: Eucal\nSoundtrack: Tianya Singer\nCities: Shanghai"
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_f23a7f1aaa9944b1838c4d4024ffdf89/720p/mp4/file.mp4",
+          "description": "Jiangnan\niPhone X, CANON EOS7D\nClip: Eucal\nSoundtrack: Suzhou Pingtan\nCities: Suzhou, Wuxi, Changzhou"
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_7156e9bdc13647cca61be84718113ebe/720p/mp4/file.mp4",
+          "description": "Shandong\niPhone X, PENTAX ESPIO 80\nClip: Eucal\nSoundtrack: Shandong Music\nCities: Qingdao, Weihai, Yantai"
+        },
+        {
+          "format": "header",
+          "title": "Southwest China",
+          "description": ""
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_489e6f9bbd984c0da2afbe2694f1e8e4/720p/mp4/file.mp4",
+          "description": "Southwest China\niPhone 6, PENTAX ESPIO 80\nClip: Eucal\nSoundtrack: Southwest Rhyme\nCities: Chongqing, Chengdu, Yunnan"
+        },
+        {
+          "format": "header",
+          "title": "Southern China",
+          "description": ""
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_3a1ac3a9aa4c4b9e991a9a1e20e39d77/720p/mp4/file.mp4",
+          "description": "Henan\niPhone X\nClip: Eucal\nSoundtrack: Nancheng Flower Has Opened\nCities: Kaifeng, Zhengzhou"
+        },
+        {
+          "format": "header",
+          "title": "North China",
+          "description": ""
+        },
+        {
+          "format": "video",
+          "url": "https://video.wixstatic.com/video/e22a21_191cbd0187004356ad0fcbf33c5303a5/720p/mp4/file.mp4",
+          "description": "Beijing\niPhone 6, PENTAX ESPIO 80\nClip: Eucal\nSoundtrack: Beijing Opera Rhyme\nCities: Beijing"
+        }
+      ]
     }
   ]
 }

@@ -101,11 +101,12 @@ Hobbies & Interests
 References available upon request`
 
 // External JSON: folder collections for right-side folder icons (Photos, Drawings, etc.)
-// content: array of modular format items (center_image, columns, header, image_left, image_right, text_only)
+// content: array of modular format items (center_image, columns, header, image_left, image_right, text_only, video)
 type ContentText = { title: string; medium: string; dimensions: string }
 type ContentItem =
   | { format: 'center_image'; image: string; text?: ContentText }
   | { format: 'header'; title: string; description: string }
+  | { format: 'video'; url: string; description?: string }
   | { format: 'columns'; image1: string; text1?: ContentText; image2: string; text2?: ContentText; image3?: string; text3?: ContentText, image4?: string; text4?: ContentText, image5?: string; text5?: ContentText, image6?: string; text6?: ContentText }
   | { format: 'image_left'; image: string; text: ContentText }
   | { format: 'image_right'; image: string; text: ContentText }
@@ -277,6 +278,15 @@ function FolderWindow({
               {renderTextBlock(item.text)}
             </div>
           )
+        case 'video':
+          return (
+            <div key={idx} className="flex flex-col w-full">
+              <video src={item.url} controls playsInline className="w-full h-auto" />
+              {item.description != null && item.description !== '' && (
+                <p className="font-martian-mono text-sm text-black/80 mt-2 whitespace-pre-wrap">{item.description}</p>
+              )}
+            </div>
+          )
         default:
           return null
       }
@@ -332,7 +342,7 @@ function getGridDimensions() {
 }
 
 const DEFAULT_FOLDER_ICON = '/image/icons/folder.png'
-
+const PLAY_FOLDER_ICON = '/image/icons/folder_2.png'
 const BAR_ICON_OPTIONS = ['dog_1.png', 'dog_2.png', 'dog_3.png', 'dog_4.png', 'dog_5.png', 'dog_6.png'] as const
 
 function SettingsWindow({
@@ -503,6 +513,7 @@ function getInitialIcons(gridCols: number): GridIcon[] {
     { id: '13', row: 2, col: rightmostCol -1, label: 'Project 1', imgSrc: DEFAULT_FOLDER_ICON },
     { id: '14', row: 3, col: rightmostCol -1, label: 'Exhibition Sharing', imgSrc: DEFAULT_FOLDER_ICON },
     { id: '15', row: 4, col: rightmostCol -1, label: 'Independent Studies', imgSrc: DEFAULT_FOLDER_ICON },
+    { id: '16', row: 5, col: rightmostCol -1, label: 'Travel Photography', imgSrc: PLAY_FOLDER_ICON },
   ]
 }
 
