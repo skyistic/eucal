@@ -134,7 +134,15 @@ function renderTextBlock(text: ContentText) {
 
 const WINDOW_PADDING = 32
 const BOTTOM_BAR_HEIGHT = 48
-const FOLDER_WINDOW_WIDTH = '80vw'
+const MOBILE_BREAKPOINT = 768
+
+function isMobileViewport() {
+  return window.innerWidth < MOBILE_BREAKPOINT
+}
+
+function getFolderWindowWidthPx() {
+  return isMobileViewport() ? window.innerWidth : window.innerWidth * 0.8
+}
 
 function FolderWindow({
   title,
@@ -188,8 +196,8 @@ function FolderWindow({
           )
         case 'columns':
           return (
-            <div key={idx} className={`grid gap-8 mx-auto w-full ${item.image5 ? 'grid-cols-5' : item.image4 ? 'grid-cols-4' : item.image3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-              <div className="flex flex-col items-start w-fit min-w-[200px] w-full">
+            <div key={idx} className={`grid gap-1 sm:gap-8 mx-auto w-full ${item.image5 ? 'grid-cols-5' : item.image4 ? 'grid-cols-4' : item.image3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+              <div className="flex flex-col items-start w-fit w-full">
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img src={item.image1} alt="" className="w-full h-full object-contain" />
                 </div>
@@ -197,7 +205,7 @@ function FolderWindow({
                   <div className="mt-2">{renderTextBlock(item.text1)}</div>
                 )}
               </div>
-              <div className="flex flex-col items-start w-fit min-w-[200px] w-full">
+              <div className="flex flex-col items-start w-fit w-full">
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img src={item.image2} alt="" className="w-full h-full object-contain" />
                 </div>
@@ -206,7 +214,7 @@ function FolderWindow({
                 )}
               </div>
               {item.image3 && item.image3 !== '—' && (
-                <div className="flex flex-col items-start w-fit min-w-[200px] w-full">
+                <div className="flex flex-col items-start w-fit w-full">
                   <div className="w-full overflow-hidden flex items-center justify-center">
                     <img src={item.image3} alt="" className="w-full h-full object-contain" />
                   </div>
@@ -216,7 +224,7 @@ function FolderWindow({
                 </div>
               )}
               {item.image4 && item.image4 !== '—' && (
-                <div className="flex flex-col items-start w-fit min-w-[200px] w-full">
+                <div className="flex flex-col items-start w-fit w-full">
                   <div className="w-full overflow-hidden flex items-center justify-center">
                     <img src={item.image4} alt="" className="w-full h-full object-contain" />
                   </div>
@@ -226,7 +234,7 @@ function FolderWindow({
                 </div>
               )}
               {item.image5 && item.image5 !== '—' && (
-                <div className="flex flex-col items-start w-fit min-w-[200px] w-full">
+                <div className="flex flex-col items-start w-fit w-full">
                   <div className="w-full overflow-hidden flex items-center justify-center">
                     <img src={item.image5} alt="" className="w-full h-full object-contain" />
                   </div>
@@ -240,12 +248,12 @@ function FolderWindow({
         case 'image_left':
           return (
             <div key={idx} className="grid grid-cols-2 gap-8 mx-auto w-full">
-              <div className="flex flex-col items-start w-fit min-w-[200px] w-full">
+              <div className="flex flex-col items-start w-fit w-full">
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img src={item.image} alt="" className="w-full h-full object-contain" />
                 </div>
               </div>
-              <div className="flex flex-col items-start w-fit justify-center min-w-[200px] w-full">
+              <div className="flex flex-col items-start w-fit justify-center w-full">
                 <div className="flex flex-col justify-center min-w-0">{renderTextBlock(item.text)}</div>
               </div>
             </div>
@@ -253,10 +261,10 @@ function FolderWindow({
         case 'image_right':
           return (
             <div key={idx} className="grid grid-cols-2 gap-8 mx-auto w-full">
-            <div className="flex flex-col items-start w-fit justify-center min-w-[200px] w-full">
+            <div className="flex flex-col items-start w-fit justify-center w-full">
               <div className="flex flex-col justify-center min-w-0">{renderTextBlock(item.text)}</div>
             </div>
-              <div className="flex flex-col items-start w-fit min-w-[200px] w-full">
+              <div className="flex flex-col items-start w-fit w-full">
                 <div className="w-full overflow-hidden flex items-center justify-center">
                   <img src={item.image} alt="" className="w-full h-full object-contain" />
                 </div>
@@ -292,7 +300,7 @@ function FolderWindow({
   )
 
   return (
-    <div className={`rounded-2xl overflow-hidden shadow-2xl flex flex-col bg-[#CDC7F3] p-4 pt-2 border-[3px] border-[#7E4661] ${isFullscreen ? '' : 'max-w-3xl max-h-sm'}`} style={isFullscreen ? { width: FOLDER_WINDOW_WIDTH, height: `calc(100vh - ${WINDOW_PADDING * 2}px - ${BOTTOM_BAR_HEIGHT}px)` } : undefined}>
+    <div className={`rounded-2xl overflow-hidden shadow-2xl flex flex-col bg-[#CDC7F3] p-4 pt-2 border-[3px] border-[#7E4661] ${isFullscreen ? 'w-full md:w-[80vw]' : 'max-w-3xl max-h-sm'}`} style={isFullscreen ? { height: `calc(100vh - ${WINDOW_PADDING * 2}px - ${BOTTOM_BAR_HEIGHT}px)` } : undefined}>
       <div
         className="flex items-center justify-between gap-2 px-3 py-2 shrink-0 cursor-grab active:cursor-grabbing select-none"
         onMouseDown={onTitleBarMouseDown}
@@ -437,7 +445,6 @@ type GridIcon = {
 }
 
 const WINDOW_Z_BASE = 30
-const WINDOW_OFFSET = 36
 
 type WindowSize = 'default' | 'fullscreen'
 
@@ -460,14 +467,14 @@ function getCenteredWindowPosition(type: OpenWindow['type'], size?: WindowSize):
     w = 360
     h = 420
   } else if (size === 'fullscreen') {
-    w = window.innerWidth * 0.8
+    w = getFolderWindowWidthPx()
     h = window.innerHeight - padding * 2 - BOTTOM_BAR_HEIGHT
   } else {
     w = 500
     h = 384
   }
   return {
-    x: Math.max(0, (window.innerWidth - w) / 2),
+    x: isMobileViewport() && size === 'fullscreen' ? 0 : Math.max(0, (window.innerWidth - w) / 2),
     y: Math.max(0, (window.innerHeight - h) / 2),
   }
 }
